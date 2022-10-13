@@ -1,0 +1,14 @@
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/bootcss/bootstrap.css' %}">
+
+<h1 style="text-align: center;">Editar nota</h1>
+
+<form class="row g-3" action="" method="post" style="text-align: center;">{% csrf_token %}
+    {{ form.as_table }}
+
+    <a href="{% url 'noticia' %}" class="btn btn-danger">Cancelar</a>
+    <input type="submit" value="Editar" class="btn btn-primary">
+</form>
+
+{% endblock content %}

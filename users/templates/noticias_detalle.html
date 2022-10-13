@@ -1,0 +1,23 @@
+<br>
+<a class="nav-link" style="text-align: left; margin-left: 10px;" href="{% url 'noticia' %}">⬅️Volver</a>
+<h1 style="color:black; text-align: center;"> Nota completa </h1>
+
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/bootcss/bootstrap.css' %}">
+    
+    <div class="card" style="width: 80rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{Noticia_Completa.Titulo}}</h5>
+          <p class="card-text"> {{Noticia_Completa.Descripcion}}</p>
+          <p class="card-text"> {{Noticia_Completa.Fecha}}</p>
+          <p class="card-text"> {{Noticia_Completa.Autor}}</p>
+        </div>
+    </div>
+
+    <p class="text-center">
+        <a href="{% url 'noticias_editar' Noticia_Completa.pk %}">Editar nota</a> |
+        <a href="{% url 'noticias_delete' Noticia_Completa.pk %}">Borrar esta nota</a>
+    </p>
+{% endblock %}

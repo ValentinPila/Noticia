@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>    
+    <div style="text-align: center;">    
+        <button type="button" class="btn btn-secondary"><a class="nav-link" href="{% url 'noticias_nuevo' %}">Añadir noticia</a></button>
+    </div>
+    <hr>
+
+    {% for noticia in Todas_Las_Noticias %}
+    <div class="card" style="width: 80rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{noticia.Titulo}}</h5>
+          <p class="card-text">{{noticia.Descripcion}}</p>
+          <p class="card-text"><small class="text-muted">Autor: {{noticia.Autor}}</small></p>
+        </div>
+        <ul class="list-group list-group-flush">
+            {% for comentario in noticia.comentarios.all %}
+            <li class="list-group-item">__________________________________________________________________________________________________________________________________________</li>
+            <li class="list-group-item">{{comentario.autor}} escribio: {{comentario.comentario}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="card-body">
+        <br>
+        <a href="{% url 'noticias_detalle' noticia.pk %}" class="btn btn-primary">Leer nota completa</a>
+    </div>
+    <hr>
+    {% endfor %}
+
+    <!--
+    {% for noticia in Todas_Las_Noticias %}
+    <div class="card" style="width: 80rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{noticia.Titulo}}</h5>
+          <p class="card-text">{{noticia.Descripcion}}</p>
+          <a href="{% url 'noticias_detalle' noticia.pk %}" class="btn btn-primary">Leer nota completa</a>
+        </div>
+    </div>
+    <hr>
+    {% endfor %}
+-->
+{% endblock content %}

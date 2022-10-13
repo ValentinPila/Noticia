@@ -1,0 +1,16 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/bootcss/bootstrap.css' %}">
+<h1 style="text-align: center;">Eliminar</h1>
+
+{% block content %}
+
+<form action="" method="post">{% csrf_token %}
+    <h2 style="text-align: center;">¿Esta seguro que desea eliminar esta nota?</h2>
+    <br>
+    <p class="text-center">
+        <a href="{% url 'noticia' %}" class="btn btn-danger">Cancelar</a>
+        <input type="submit" value="Borrar" class="btn btn-primary">
+    </p>
+</form>
+
+{% endblock content %}
